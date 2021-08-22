@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Builder Inventory{% endblock %}</h1>
+{% if g.user %}
+<a class="action" href="{{ url_for('builder.obtain') }}">Obtain</a>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<table>
+    <tr>
+        <th>Owner</th>
+        <th>Resource</th>
+        <th>Effort</th>
+        <th>Obtained</th>
+    </tr>
+    {% for inv in inventory %}
+    <tr>
+        <td>{{inv.username}}</td>
+        <td>{{inv.name}}</td>
+        <td>{{inv.effort}}</td>
+        <td>{{inv.obtained}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

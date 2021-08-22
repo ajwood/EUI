@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Obtain{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="resource">Resource</label>
+    <select name="resource_id">
+      {% for r in resources %}
+      <option value={{r.id}}>{{r.name}} ({{r.effort}})</option>
+      {% endfor %}
+    </select>
+
+    <input type="submit" value="Obtain">
+  </form>
+{% endblock %}
